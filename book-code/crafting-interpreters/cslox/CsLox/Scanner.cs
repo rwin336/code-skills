@@ -17,7 +17,6 @@ namespace com.craftinginterpreters.lox
             this.source = source;
         }
 
-
         public List<Token> scanTokens() 
         {
             while(!isAtEnd())
@@ -104,10 +103,37 @@ namespace com.craftinginterpreters.lox
                 case '\n':
                     line++;
                     break;
+                case '"': 
+                    LiteralString();
+                    break;
                 default:
                     Lox.error(line, "Unexpected charater.");
                     break;
             }
+        }
+
+        private void LiteralString() 
+        {
+            while(peek() != '"' && !isAtEnd())
+            {
+                if(peek() == '\n')
+                {
+                    line++;
+                }
+                advance();
+            }
+
+            if(isAtEnd())
+            {   
+                Lox.error(line, "Unterminated string.");
+                return;
+            }
+
+            advance();  // The closing ".
+
+            // Trim the surrounding quotes.
+            String value = source.Substring(start + 1, current - 1);
+            addToken(STRING, value);
         }
 
         private bool match(char expected)
@@ -147,8 +173,14 @@ namespace com.craftinginterpreters.lox
 
         private void addToken(TokenType type, Object? literal)
         {
-            string text = source.Substring(start, current);
-            tokens.Add(new Token(type, text, literal, line));
+            try {
+                string text = source.Substring(start, (current - start));
+                tokens.Add(new Token(type, text, literal, line));
+            }
+            catch(System.ArgumentOutOfRangeException)
+            {
+                Lox.error(line, $"OOB: source len: {source.Length} {start} {current}");
+            }
         }
 
     }

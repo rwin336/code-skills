@@ -60,7 +60,7 @@ namespace com.craftinginterpreters.lox
 
             foreach(Token token in tokens)
             {
-                WriteLine(token);
+                WriteLine($"{token}");
             }
         }
 
