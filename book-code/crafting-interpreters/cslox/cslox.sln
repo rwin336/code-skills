@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLox", "CsLox\CsLox.csproj", "{DB647089-2598-4050-B4FD-994B5E5E858C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLoxTests", "CsLoxTests\CsLoxTests.csproj", "{F08A0165-8A91-429C-9CD0-7ED0F637D416}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB647089-2598-4050-B4FD-994B5E5E858C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB647089-2598-4050-B4FD-994B5E5E858C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB647089-2598-4050-B4FD-994B5E5E858C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB647089-2598-4050-B4FD-994B5E5E858C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
