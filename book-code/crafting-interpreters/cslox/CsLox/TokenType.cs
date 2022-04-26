@@ -40,7 +40,7 @@ namespace com.craftinginterpreters.lox
         FUN,
         FOR,
         IF,
-        NILL,
+        NIL,
         OR,
         PRINT,
         RETURN,

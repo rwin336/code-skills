@@ -8,6 +8,25 @@ namespace com.craftinginterpreters.lox
         private readonly string source;
         private readonly List<Token> tokens = new List<Token>();
 
+        private static readonly Dictionary<string, TokenType>keywords = new Dictionary<string, TokenType>{
+            {"add",     AND},
+            {"class",   CLASS},
+            {"else",    ELSE},
+            {"false",   FALSE},
+            {"for",     FOR},
+            {"fun",     FUN},
+            {"if",      IF},
+            {"nil",     NIL},
+            {"or",      OR},
+            {"print",   PRINT},
+            {"return",  RETURN},
+            {"super",   SUPER},
+            {"this",    THIS},
+            {"true",    TRUE},
+            {"var",     VAR},
+            {"while",   WHILE}
+        };
+
         private int start;
         private int current;
         private int line = 1;
@@ -110,12 +129,43 @@ namespace com.craftinginterpreters.lox
                     {
                         number();
                     }
+                    else if(isAlpha(c))
+                    {
+                        identifier();
+                    }
                     else
                     {
                         Lox.error(line, "Unexpected charater.");
                     }
                     break;
             }
+        }
+
+        private void identifier() 
+        {
+            while(isAlphaNumeric(peek()))
+            {
+                advance();
+            }
+            string text = source.Substring(start, (current - start));
+            try 
+            {
+                addToken(keywords[text]);
+            }
+            catch(KeyNotFoundException)
+            {
+                addToken(IDENTIFIER);
+            }
+        }
+
+        private bool isAlpha(char c) 
+        {
+            return (c >= 'a' && c <= 'z') || (c >= 'A' &&  c <= 'Z') || c == '_';
+        }
+
+        private bool isAlphaNumeric(char c)
+        {
+            return isAlpha(c) || isDigit(c);
         }
 
         private void LiteralString() 
@@ -138,7 +188,7 @@ namespace com.craftinginterpreters.lox
             advance();  // The closing ".
 
             // Trim the surrounding quotes.
-            String value = source.Substring(start + 1, current - 1);
+            String value = source.Substring(start + 1, ((current - 1) - start));
             addToken(STRING, value);
         }
 
