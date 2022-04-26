@@ -1,11 +1,8 @@
 ﻿using System;
-
 using static System.Console;
-
 
 namespace com.craftinginterpreters.lox
 {
-
     public class Lox 
     {
         static bool hadError;
@@ -27,6 +24,11 @@ namespace com.craftinginterpreters.lox
             }
         }
 
+       public static bool scan(string line) {
+            hadError = false;
+            run(line);
+            return hadError;
+        }
 
         private static void RunFile(string path)
         {
@@ -74,11 +76,5 @@ namespace com.craftinginterpreters.lox
             Error.WriteLine($"[line {line} ] Error: {where}:{message}");
             hadError = true;
         }
-
-
     }
-
-
-
-
 }
