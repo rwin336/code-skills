@@ -94,7 +94,6 @@ namespace com.craftinginterpreters.lox
                         addToken(SLASH);
                     }
                     break;
-
                 case ' ':
                 case '\r':
                 case '\t':
@@ -107,7 +106,14 @@ namespace com.craftinginterpreters.lox
                     LiteralString();
                     break;
                 default:
-                    Lox.error(line, "Unexpected charater.");
+                    if(isDigit(c))
+                    {
+                        number();
+                    }
+                    else
+                    {
+                        Lox.error(line, "Unexpected charater.");
+                    }
                     break;
             }
         }
@@ -134,6 +140,42 @@ namespace com.craftinginterpreters.lox
             // Trim the surrounding quotes.
             String value = source.Substring(start + 1, current - 1);
             addToken(STRING, value);
+        }
+
+        private bool isDigit(char c) 
+        {
+            return c >= '0' && c <= '9';
+        }
+
+        private void number()
+        {
+            while(isDigit(peek()))
+            {
+                advance();
+            }
+
+            // Look for a fractional part
+            if(peek() == '.' && isDigit(peekNext()))
+            {
+                // Consume the '.'
+                advance();
+            }
+
+            while(isDigit(peek()))
+            {
+                advance();
+            }
+
+            addToken(NUMBER, Double.Parse(source.Substring(start, (current - start))));
+        }
+
+        private char peekNext() 
+        {
+            if(current + 1 >= source.Length)
+            {
+                return '\0';
+            }
+            return source[current + 1];
         }
 
         private bool match(char expected)
@@ -179,7 +221,7 @@ namespace com.craftinginterpreters.lox
             }
             catch(System.ArgumentOutOfRangeException)
             {
-                Lox.error(line, $"OOB: source len: {source.Length} {start} {current}");
+                Lox.error(line, $"ArgumentOutOfRangeException: source len: {source.Length} {start} {current}");
             }
         }
 
