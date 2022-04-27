@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using static System.Console;
 
 int x = 0;
@@ -28,4 +29,22 @@ else
     WriteLine("Too many password attempts");
 }
 
+for(int y = 1; y <= 10; y++)
+{
+    WriteLine(y);
+}
+
+
+string[] names = {"Adam", "Barry", "Charlie"};
+foreach(string name in names)
+{
+    WriteLine($"{name} has {name.Length} characters.");
+}
+
+IEnumerator e = names.GetEnumerator();
+while(e.MoveNext())
+{
+    string name = (string)e.Current;  // Current is readonly
+    WriteLine($"{name} has {name.Length} characters");
+}
 
