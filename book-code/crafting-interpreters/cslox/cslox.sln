@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLox", "CsLox\CsLox.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLoxTests", "CsLoxTests\CsLoxTests.csproj", "{F08A0165-8A91-429C-9CD0-7ED0F637D416}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsTools", "CsTools\CsTools.csproj", "{50703F34-6E43-465E-9D20-2528AF24F15C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F08A0165-8A91-429C-9CD0-7ED0F637D416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50703F34-6E43-465E-9D20-2528AF24F15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50703F34-6E43-465E-9D20-2528AF24F15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50703F34-6E43-465E-9D20-2528AF24F15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50703F34-6E43-465E-9D20-2528AF24F15C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
