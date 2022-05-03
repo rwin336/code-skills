@@ -40,8 +40,8 @@ namespace com.craftinginterpreters.lox.tools
             writer.WriteLine("namespace com.craftinginterpreters.lox ");
             writer.WriteLine("{");
             writer.WriteLine("");
-            writer.WriteLine("  abstract class " + baseName);
-            writer.WriteLine("  {");
+            writer.WriteLine("  abstract class " + baseName + " {}" );
+            writer.WriteLine("");
             foreach(string type in types)
             {
                 string className = type.Split(":")[0].Trim();
@@ -50,7 +50,6 @@ namespace com.craftinginterpreters.lox.tools
             }
 
             writer.WriteLine("");
-            writer.WriteLine("  }");
             writer.WriteLine("}");
             writer.Close();
         }
@@ -59,28 +58,26 @@ namespace com.craftinginterpreters.lox.tools
         private static void defineType(StreamWriter writer, string baseName, string className, string fieldList)
         {
             writer.WriteLine("");
-            writer.WriteLine("");
-            writer.WriteLine($"    class {className} : {baseName} " );
-            writer.WriteLine( "    {");
+            writer.WriteLine($"  class {className} : {baseName} " );
+            writer.WriteLine( "  {");
 
-            writer.WriteLine($"      {className}({fieldList}) ");
-            writer.WriteLine( "      {");
+            writer.WriteLine($"    {className}({fieldList}) ");
+            writer.WriteLine( "    {");
 
             string[] fields = fieldList.Split(", ");
             foreach(string field in fields)
             {
                 string name = field.Split(" ")[1];
-                writer.WriteLine($"        this.{name} = {name};");
+                writer.WriteLine($"      this.{name} = {name};");
             }
-            writer.WriteLine( "      }");
+            writer.WriteLine( "    }");
 
             writer.WriteLine("");
             foreach(string field in fields)
             {
-                writer.WriteLine($"      readonly {field};");
+                writer.WriteLine($"    readonly {field};");
             }
-            writer.WriteLine("    }");
+            writer.WriteLine("  }");
         }
     }
-
 }
