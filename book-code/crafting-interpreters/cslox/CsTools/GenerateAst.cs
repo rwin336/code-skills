@@ -40,7 +40,12 @@ namespace com.craftinginterpreters.lox.tools
             writer.WriteLine("namespace com.craftinginterpreters.lox ");
             writer.WriteLine("{");
             writer.WriteLine("");
-            writer.WriteLine("  abstract class " + baseName + " {}" );
+            writer.WriteLine("  abstract class " + baseName);
+            writer.WriteLine("  {");
+            writer.WriteLine();
+            defineVistor(writer, baseName, types);
+            writer.WriteLine();
+            writer.WriteLine("   }");
             writer.WriteLine("");
             foreach(string type in types)
             {
@@ -78,6 +83,19 @@ namespace com.craftinginterpreters.lox.tools
                 writer.WriteLine($"    readonly {field};");
             }
             writer.WriteLine("  }");
+        }
+
+        
+        private static void defineVistor(StreamWriter writer, string baseName, List<string> types)
+        {
+            writer.WriteLine("    interface Vistor<R> ");
+            writer.WriteLine("    {");
+            foreach(string type in types)
+            {
+                string typeName = type.Split(":")[0].Trim();
+                writer.WriteLine($"      R visit{typeName}{baseName}({typeName} {baseName.ToLower()});");
+            }
+            writer.WriteLine("    }");
         }
     }
 }
