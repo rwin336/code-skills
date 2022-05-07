@@ -1,2 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using static System.Console;
+
+namespace com.rwin.codeskills.cs10dotnet6.chap4.writingfunctions
+{
+
+    public class WritingFunctions
+    {
+
+        public static void Main(string[] args)
+        {
+
+            WriteLine("Hello from Writing Functions");
+        
+
+
+        }
+
+
+    }
+
+
+
+}
