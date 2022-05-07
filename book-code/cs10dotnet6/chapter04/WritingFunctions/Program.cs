@@ -11,10 +11,43 @@ namespace com.rwin.codeskills.cs10dotnet6.chap4.writingfunctions
         {
 
             //TimesTable(number: 6);
-            decimal taxToPay = CalculateTax(amount: 149, twoLetterRegionCode: "FR");
-            WriteLine($"You must pay {taxToPay} in tax.");
 
+            //decimal taxToPay = CalculateTax(amount: 149, twoLetterRegionCode: "FR");
+            //WriteLine($"You must pay {taxToPay} in tax.");
 
+            RunCardinalToOrdianl();
+
+        }
+
+        static void RunCardinalToOrdianl()
+        {
+            for(int number = 1; number <= 40; number++)
+            {
+                Write($"{CardinalToOrdinal(number)} ");
+            }
+            WriteLine();
+        }
+
+        static string CardinalToOrdinal(int number)
+        {
+            switch(number)
+            {
+                case 11:  // special cases for 11th to 13th
+                case 12:
+                case 13:
+                    return $"{number}th";
+                default:
+                    int lastDigit = number % 10;
+
+                    string suffix = lastDigit switch
+                    {
+                        1 => "st",
+                        2 => "nd",
+                        3 => "rd",
+                        _ => "th"
+                    };
+                    return $"{number}{suffix}";
+            }
         }
 
 
