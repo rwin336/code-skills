@@ -1,5 +1,6 @@
 ﻿using System;
 using Packet;
+using Microsoft.Extensions.Logging;
 using static System.Console;
 
 WriteLine("In Main");
@@ -14,5 +15,25 @@ static void Alpha()
 static void Beta()
 {
     WriteLine("In Beta");
-    Calculator.Gamma();
+
+    try 
+    {
+        Calculator.Gamma();
+    }
+    catch(IOException ex)
+    {
+        WriteLine($"Caught this: {ex.Message}");
+        throw ex;
+
+        //LogException(ex);
+        //
+        //throw ex;
+        //
+        //throw;
+        //
+        //throw new InvalidOperationException(
+        //    message: "Calculation had invalid values.  See inner exception for why.",
+        //    innerException: ex
+        //);
+    }
 }
