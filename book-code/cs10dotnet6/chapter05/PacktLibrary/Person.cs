@@ -1,12 +1,11 @@
 using System;
 using static System.Console;
 
-namespace Packt.Shared
+namespace Packt.Shared;
+
+public class Person
 {
-    public class Person
-    {
 
-        
 
-    }
+
 }
