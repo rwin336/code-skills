@@ -11,6 +11,9 @@ bob.BucketList =
     WondersOfTheAncientWorld.HangingGardenOfBabylon 
     | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
+bob.Children.Add(new Person { Name = "Alfred"});   // C# 3.0 or later
+bob.Children.Add(new() { Name = "Zoe"});
+
 WriteLine(bob.ToString());
 WriteLine(format: "{0} was born on {1:dddd, d MMMM yyyy}", 
     arg0: bob.Name, 
@@ -21,7 +24,14 @@ WriteLine(
     arg1: bob.FavoriteAncientWonder,
     arg2: (int)bob.FavoriteAncientWonder);
 WriteLine($"{bob.Name}' bucket list is {bob.BucketList}");
+WriteLine(
+    $"{bob.Name} has {bob.Children.Count} children");
 
+for(int childIndex = 0; childIndex < bob.Children.Count; childIndex++)
+{
+    WriteLine($"  {bob.Children[childIndex].Name}");
+}
+WriteLine("");
 
 Person alice = new() 
 {
