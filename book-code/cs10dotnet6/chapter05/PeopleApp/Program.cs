@@ -7,6 +7,9 @@ Person bob = new();         // C# 9.0 or later
 bob.Name = "Bob Smith";
 bob.DateOfBirth = new DateTime(1965, 12, 22);
 bob.FavoriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympia;
+bob.BucketList = 
+    WondersOfTheAncientWorld.HangingGardenOfBabylon 
+    | WondersOfTheAncientWorld.MausoleumAtHalicarnassus;
 
 WriteLine(bob.ToString());
 WriteLine(format: "{0} was born on {1:dddd, d MMMM yyyy}", 
@@ -17,6 +20,8 @@ WriteLine(
     arg0: bob.Name,
     arg1: bob.FavoriteAncientWonder,
     arg2: (int)bob.FavoriteAncientWonder);
+WriteLine($"{bob.Name}' bucket list is {bob.BucketList}");
+
 
 Person alice = new() 
 {
