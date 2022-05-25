@@ -67,3 +67,5 @@ WriteLine(
 );
 
 WriteLine($"{bob.Name} is a {Person.Species}");
+
+WriteLine($"{bob.Name} was born on {bob.HomePlanet}");

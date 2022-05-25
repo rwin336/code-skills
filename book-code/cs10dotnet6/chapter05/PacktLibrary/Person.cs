@@ -18,4 +18,8 @@ public class Person : object
 
     public const string Species = "Homo Sapien";
 
+    public readonly string HomePlanet = "Earth";
+
+    
+
 }
