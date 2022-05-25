@@ -66,3 +66,4 @@ WriteLine(
     arg1: gerrierAccount.Balance * BankAccount.InterestRate
 );
 
+WriteLine($"{bob.Name} is a {Person.Species}");

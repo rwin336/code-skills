@@ -16,4 +16,6 @@ public class Person : object
 
     public List<Person> Children = new List<Person>();
 
+    public const string Species = "Homo Sapien";
+
 }
