@@ -20,6 +20,22 @@ public class Person : object
 
     public readonly string HomePlanet = "Earth";
 
-    
+    public readonly DateTime Instantiated;
+
+    // construct
+    public Person()
+    {
+        // set default values for fields
+        // include read-only fields
+        Name = "Unknown";
+        Instantiated = DateTime.Now;
+    }
+
+    public Person(string initialName, string homePlanet)
+    {
+        Name = initialName;
+        HomePlanet = homePlanet;
+        Instantiated = DateTime.Now; 
+    }
 
 }
