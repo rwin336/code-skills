@@ -109,3 +109,6 @@ WriteLine($"Deconstructed: {name1}, {dob1}");
 
 var (name2, dob2, fav2) = bob;
 WriteLine($"Deconstructed: {name2}, {dob2}, {fav2}");
+
+WriteLine(bob.SayHello());
+WriteLine(bob.SayHello("Emily"));
