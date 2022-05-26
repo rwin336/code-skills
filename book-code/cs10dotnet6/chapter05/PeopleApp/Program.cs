@@ -85,3 +85,27 @@ WriteLine(format:
     arg0: gunny.Name,
     arg1: gunny.HomePlanet,
     arg2: gunny.Instantiated);
+
+bob.WriteToConsole();
+WriteLine(bob.GetOrigin());
+
+(string, int) fruit = bob.GetFruit();
+WriteLine($"{fruit.Item1}, {fruit.Item2} there are");
+
+var fruitNamed = bob.GetNamedFruit();
+WriteLine($"There are {fruitNamed.Name} {fruitNamed.Number}");
+
+var thing1 = ("Neville", 4);
+WriteLine($"{thing1.Item1} has {thing1.Item2} childern");
+
+var thing2 = (bob.Name, bob.Children.Count);
+WriteLine($"{thing2.Name} has {thing2.Count} childern");
+
+(string fruitName, int fruitNumber) = bob.GetFruit();
+WriteLine($"Deconstructed: {fruitName}, {fruitNumber}");
+
+var (name1, dob1) = bob;
+WriteLine($"Deconstructed: {name1}, {dob1}");
+
+var (name2, dob2, fav2) = bob;
+WriteLine($"Deconstructed: {name2}, {dob2}, {fav2}");
