@@ -99,4 +99,14 @@ public class Person : object
         
     }
 
+    public void PassingParameters(int x, ref int y, out int z)
+    {
+        // out parameters cannot have a default
+        // AND must be initialzed inside the method
+        z = 99;
+        x++;
+        y++;
+        z++;
+    }
+
 }
