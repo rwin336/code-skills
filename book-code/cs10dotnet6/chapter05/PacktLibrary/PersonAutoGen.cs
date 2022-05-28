@@ -42,5 +42,17 @@ namespace Packt.Shared
                 }
             }
         }
+
+        public Person this[int index]
+        {
+            get
+            {
+                return Children[index];  // pass on to the List<T> indexer
+            }
+            set
+            {
+                Children[index] = value;
+            }
+        }
     }
 }

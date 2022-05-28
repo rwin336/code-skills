@@ -153,3 +153,14 @@ WriteLine($"Sam's favorite ice-cream flavor is {sam.FavoriteIceCream}.");
 
 sam.FavoritePrimaryColor = "red";
 WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
+
+sam.Children.Add(new() { Name = "Charile"});
+sam.Children.Add(new() { Name = "Ella"});
+
+WriteLine($"Sam's first child is {sam.Children[0].Name}");
+WriteLine($"Sam's second child is {sam.Children[1].Name}");
+
+WriteLine($"Sam's first child is {sam[0].Name}");
+WriteLine($"Sam's second child is {sam[1].Name}");
+
+
