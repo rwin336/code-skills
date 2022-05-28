@@ -1,9 +1,7 @@
 namespace Packt.Shared
 {
-
     public partial class Person
     {
-
         public string Origin
         {
             get
@@ -16,5 +14,33 @@ namespace Packt.Shared
 
         public int Age => System.DateTime.Today.Year - DateOfBirth.Year;
 
+        public string FavoriteIceCream { get; set; }
+
+        private string favoritePrimaryColor;
+
+        public string FavoritePrimaryColor
+        {
+            get
+            {
+                return favoritePrimaryColor;
+            }
+
+            set 
+            {
+                switch(value.ToLower())
+                {
+                    case "red":
+                    case "green":
+                    case "blue":
+                      favoritePrimaryColor = value;
+                      break;
+                    default:
+                        throw new System.ArgumentException(
+                            $"{value} is not a primary color. "  +
+                            "choose from: red, green, blue"
+                        );
+                }
+            }
+        }
     }
 }
