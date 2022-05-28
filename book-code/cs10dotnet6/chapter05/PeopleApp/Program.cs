@@ -188,7 +188,7 @@ foreach (object passenger in passengers)
         _                                             => 800M
     };
 
-    WriteLine($"Fligt costs {flightCost:C} for {passenger}");
+    WriteLine($"Flight costs {flightCost:C} for {passenger}");
 }
 
 WriteLine("");
@@ -210,7 +210,7 @@ foreach (object passenger in passengers)
         _                                             => 800M
     };
 
-    WriteLine($"Fligt costs {flightCost:C} for {passenger}");
+    WriteLine($"Flight costs {flightCost:C} for {passenger}");
 }
 
 WriteLine("");
@@ -223,4 +223,22 @@ ImmutablePerson jeff = new()
 
 //jeff.FirstName = "Geoff";
 
+ImmutableVechile car = new()
+{
+    Brand = "Mazda MX-5 RF",
+    Color = "Soul Red Crystal Metallic",
+    Wheels = 4
+};
+
+ImmutableVechile repaintedCar = car 
+  with { Color = "Polymetal Grey Metallic" };
+
+WriteLine($"Original car color was {car.Color}");
+WriteLine($"New car color is {repaintedCar.Color}");
+
+WriteLine("");
+
+ImmutableAnimal oscar = new("Oscar", "Labrador");
+var (who, what) = oscar;
+WriteLine($"{who} is a {what}");
 
