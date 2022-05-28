@@ -172,6 +172,8 @@ object[] passengers = {
     new CoachClassPassenger { CarryOnKG = 0 },
 };
 
+WriteLine();
+
 // C# 8 systax
 foreach (object passenger in passengers)
 {
@@ -188,6 +190,8 @@ foreach (object passenger in passengers)
 
     WriteLine($"Fligt costs {flightCost:C} for {passenger}");
 }
+
+WriteLine("");
 
 // C# 9 systax
 foreach (object passenger in passengers)
@@ -208,4 +212,15 @@ foreach (object passenger in passengers)
 
     WriteLine($"Fligt costs {flightCost:C} for {passenger}");
 }
+
+WriteLine("");
+
+ImmutablePerson jeff = new()
+{
+    FirstName = "Jeff",
+    LastName = "Winger"
+};
+
+//jeff.FirstName = "Geoff";
+
 
