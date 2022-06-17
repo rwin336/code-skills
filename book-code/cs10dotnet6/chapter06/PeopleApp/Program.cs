@@ -34,3 +34,6 @@ string s4 = s1 + s2;
 WriteLine(s3);
 WriteLine(s4);
 
+WriteLine("");
+WriteLine($"5! is {Person.Factorial(5)}");
+
