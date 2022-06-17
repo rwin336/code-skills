@@ -12,6 +12,9 @@ baby1.Name = "Gary";
 // call static method
 Person baby2 = Person.Procreate(harry, jill);
 
+// call an operator
+Person baby3 = harry * mary;
+
 WriteLine($"{harry.Name} has {harry.Children.Count} children");
 WriteLine($"{mary.Name} has {mary.Children.Count} children");
 WriteLine($"{jill.Name} has {jill.Children.Count}");
@@ -22,7 +25,8 @@ WriteLine(
     arg1: harry.Children[0].Name
 );
 
-
+WriteLine("");
+WriteLine("");
 string s1 = "Hello";
 string s2 = "World!";
 string s3 = string.Concat(s1, s2);

@@ -23,6 +23,11 @@ public class Person : object
         return baby;
     }
 
+    public static Person operator *(Person p1, Person p2)
+    {
+        return Person.Procreate(p1, p2);
+    }
+
     // instance method to "multiply"
     public Person ProcreateWith(Person partner)
     {
