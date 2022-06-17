@@ -48,7 +48,7 @@ static void Harry_Shout(object? sender, EventArgs e)
     WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
 }
 
-harry.Shout = Harry_Shout;
+harry.Shout += Harry_Shout;
 harry.Poke();
 harry.Poke();
 harry.Poke();

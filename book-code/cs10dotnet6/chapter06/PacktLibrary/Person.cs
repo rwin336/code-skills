@@ -10,7 +10,7 @@ public class Person : object
     public DateTime DateOfBirth;
     public List<Person> Children = new();   // C# 9 or later
 
-    public EventHandler? Shout;
+    public event EventHandler? Shout;
 
     // data field
     public int AngerLevel;
