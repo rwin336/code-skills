@@ -21,3 +21,12 @@ WriteLine(
     arg0: harry.Name,
     arg1: harry.Children[0].Name
 );
+
+
+string s1 = "Hello";
+string s2 = "World!";
+string s3 = string.Concat(s1, s2);
+string s4 = s1 + s2;
+WriteLine(s3);
+WriteLine(s4);
+
