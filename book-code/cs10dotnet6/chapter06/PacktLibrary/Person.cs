@@ -8,7 +8,28 @@ public class Person : object
 
     public string? Name;        // ? allows null
     public DateTime DateOfBirth;
-    public List<Person> Children = new();   // C# 9 or later    
+    public List<Person> Children = new();   // C# 9 or later
+
+    public EventHandler? Shout;
+
+    // data field
+    public int AngerLevel;
+
+    // method
+    public void Poke()
+    {
+        AngerLevel++;
+
+        if(AngerLevel >= 3)
+        {
+            // if something is Listening
+            if(Shout != null)
+            {
+                // ... then call the delegate
+                Shout(this, EventArgs.Empty);
+            }
+        }
+    }
 
     // static method to "multiply"
     public static Person Procreate(Person p1, Person p2)
