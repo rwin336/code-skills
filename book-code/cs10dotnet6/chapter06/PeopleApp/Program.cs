@@ -109,10 +109,20 @@ foreach(Person p in people)
     WriteLine($"  {p.Name}");
 }
 
+WriteLine("");
 WriteLine("Use Person's IComparable implementation to sort:");
 Array.Sort(people);
 
 foreach(Person p in people)
 {
     WriteLine($"  {p.Name}");
+}
+
+// Sort using Comparer
+WriteLine("");
+WriteLine("Use PersonComparer's IComparer implementation to sort:");
+Array.Sort(people, new PersonComparer());
+foreach(Person p in people)
+{
+    WriteLine($"    {p.Name}");
 }
