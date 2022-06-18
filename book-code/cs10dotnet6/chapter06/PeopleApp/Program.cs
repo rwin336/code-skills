@@ -1,5 +1,6 @@
 ﻿using Packt.Shared;
 using static System.Console;
+using static System.Collections.Hashtable;
 
 Person harry = new() { Name = "Harry"};
 Person mary = new() { Name = "Mary"};
@@ -37,7 +38,6 @@ WriteLine(s4);
 WriteLine("");
 WriteLine($"5! is {Person.Factorial(5)}");
 
-
 static void Harry_Shout(object? sender, EventArgs e)
 {
     if(sender is null)
@@ -53,3 +53,22 @@ harry.Poke();
 harry.Poke();
 harry.Poke();
 harry.Poke();
+
+///////////////////////////////////////
+WriteLine("");
+System.Collections.Hashtable lookupObject = new();
+
+lookupObject.Add(key: 1, value: "Alpha");
+lookupObject.Add(key: 2, value: "Beta");
+lookupObject.Add(key: 3, value: "Gamma");
+lookupObject.Add(key: harry, value: "Delta");
+
+int key = 2;
+WriteLine(format: "Key {0} has a value: {1}",
+        arg0: key,
+        arg1: lookupObject[key]);
+
+WriteLine(format: "Key {0} has a value: {1}",
+        arg0: harry.Name,
+        arg1: lookupObject[harry]);
+
