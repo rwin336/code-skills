@@ -3,7 +3,7 @@
 namespace Packt.Shared; 
 
 
-public class Person : object
+public class Person : object, IComparable<Person>
 {
 
     public string? Name;        // ? allows null
@@ -79,4 +79,12 @@ public class Person : object
         WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
     }
 
+    public int CompareTo(Person? other)
+    {
+        if(Name is null)
+        {
+            return 0;
+        }
+        return Name.CompareTo(other?.Name);
+    }
 }
