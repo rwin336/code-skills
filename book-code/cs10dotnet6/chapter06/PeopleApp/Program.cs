@@ -55,6 +55,7 @@ harry.Poke();
 harry.Poke();
 
 ///////////////////////////////////////
+// Working with non-generic types
 WriteLine("");
 System.Collections.Hashtable lookupObject = new();
 
@@ -72,3 +73,20 @@ WriteLine(format: "Key {0} has a value: {1}",
         arg0: harry.Name,
         arg1: lookupObject[harry]);
 
+//////////////////////////////////////
+// Working with generic types
+WriteLine("");
+// generic Loopup collection
+Dictionary<int, string> lookupIntString = new();
+
+lookupIntString.Add(key: 1, value: "Alpha");
+lookupIntString.Add(key: 2, value: "Beta");
+lookupIntString.Add(key: 3, value: "Gamma");
+// fails to compile
+//lookupIntString.Add(key: harry, value: "Delta");
+lookupIntString.Add(key: 4, value: "Delta");
+
+key = 3;
+WriteLine(format: "Key {0} has a value: {1}",
+        arg0: key,
+        arg1: lookupIntString[key]);
