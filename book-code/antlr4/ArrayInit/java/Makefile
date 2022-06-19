@@ -20,7 +20,7 @@ CLASSPATH=.:/usr/local/lib/antlr-4.10.1-complete.jar:./$(OUTPUT)
 
 all: dirs antlr4 classes
 
-CLASSES = Test.java
+CLASSES = Test.java ShortToUnicodeString.java Translate.java
 classes: $(CLASSES:.java=.class)
 
 antlr4: $(GRAMMAR)
