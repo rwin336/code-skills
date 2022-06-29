@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class EvalVisitor extends LabedExprBaseVisitor<Integer> {
+public class EvalVisitor extends LabeledExprBaseVisitor<Integer> {
 
     /** "Memory" for our calculator; variable/value pairs go here */
-    Map<String, Integer> memory = new HashMap<String, Integer>;
+    Map<String, Integer> memory = new HashMap<String, Integer>();
 
     /** ID '=' expr NEWLINE */
     @Override
@@ -17,22 +17,22 @@ public class EvalVisitor extends LabedExprBaseVisitor<Integer> {
 
     /** expr NEWLINE  */
     @Override
-    public Integer visitPrintExpr(LabledExprParser.PrintExprContext ctx) {
-	Intege value = visit(ctx.expr());     // evaluate the expr child
+    public Integer visitPrintExpr(LabeledExprParser.PrintExprContext ctx) {
+	Integer value = visit(ctx.expr());    // evaluate the expr child
 	System.out.println(value);            // print the result
 	return 0;
     }
 
     /** INT */
     @Override
-    public Integer visitInt(LabledExprParser.PrintExprContext ctx) {
+    public Integer visitInt(LabeledExprParser.IntContext ctx) {
 	return Integer.valueOf(ctx.INT().getText());
     }
     
 
     /** ID */
     @Override
-    public Integer visitId(LabledExprParser.PrintExprContext ctx) {
+    public Integer visitId(LabeledExprParser.IdContext ctx) {
 	String id = ctx.ID().getText();
 	if( memory.containsKey(id)) {
 	    return memory.get(id);
@@ -42,7 +42,7 @@ public class EvalVisitor extends LabedExprBaseVisitor<Integer> {
 
     /**  expr op=('*'|'/') expr   */
     @Override
-    public Integer visitMulDiv(LabledExprParser.PrintExprContext ctx) {
+    public Integer visitMulDiv(LabeledExprParser.MulDivContext ctx) {
 	int left = visit(ctx.expr(0));      // get value of left subexpression
 	int right = visit(ctx.expr(1));     // get value of right subexpression
 	if( ctx.op.getType() == LabeledExprParser.MUL) {
@@ -53,10 +53,10 @@ public class EvalVisitor extends LabedExprBaseVisitor<Integer> {
 
     /**  expr op=('+'|'-') expr */
     @Override
-    public Integer visitAddSub(LabledExprParser.PrintExprContext ctx) {
+    public Integer visitAddSub(LabeledExprParser.AddSubContext ctx) {
 	int left = visit(ctx.expr(0));      // get value of left subexpression
 	int right = visit(ctx.expr(1));     // get value of right sub
-	if( ctx.op.getType() == LabeledExprParser.Add) {
+	if( ctx.op.getType() == LabeledExprParser.ADD) {
 	    return left + right;
 	}
 	return left - right;  // must be SUB
@@ -64,7 +64,7 @@ public class EvalVisitor extends LabedExprBaseVisitor<Integer> {
 
     /**  '(' expr ')'  */
     @Override
-    public Integer visitParens(LabledExprParser.PrintExprContext ctx) {
+    public Integer visitParens(LabeledExprParser.ParensContext ctx) {
 	return visit(ctx.expr());     // return child expr's value
     }
 }
