@@ -1,6 +1,10 @@
 ##
-## Makefile for ArrayList
+## Makefile for Expr
 ##
+
+## Update vars via command line example:
+##
+##   $ make JAVA_HOME=/usr/bin
 
 PARSER=Expr
 OUTPUT=output
