@@ -2,10 +2,10 @@
 ## Makefile for ArrayList
 ##
 
-PARSER=ArrayInit
+PARSER=Expr
 OUTPUT=output
 GENERATED=generated
-GRAMMAR=ArrayInit.g4
+GRAMMAR=Expr.g4
 ANTLR_JAR=/usr/local/lib/antlr-4.10.1-complete.jar
 JFLAGS=-g
 JAVA_HOME=/opt/java/jdk-17/bin
@@ -20,7 +20,7 @@ CLASSPATH=.:/usr/local/lib/antlr-4.10.1-complete.jar:./$(OUTPUT)
 
 all: dirs antlr4 classes
 
-CLASSES = Test.java ShortToUnicodeString.java Translate.java
+CLASSES= 
 classes: $(CLASSES:.java=.class)
 
 antlr4: $(GRAMMAR)
