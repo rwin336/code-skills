@@ -6,10 +6,10 @@
 ##
 ##   $ make JAVA_HOME=/usr/bin
 
-PARSER=Expr
+PARSER=Java
 OUTPUT=output
 GENERATED=generated
-GRAMMAR=LabeledExpr.g4
+GRAMMAR=Java.g4
 ANTLR_JAR=/usr/local/lib/antlr-4.10.1-complete.jar
 JFLAGS=-g
 JAVA_HOME=/opt/java/jdk-17/bin
@@ -24,12 +24,15 @@ CLASSPATH=.:/usr/local/lib/antlr-4.10.1-complete.jar:./$(OUTPUT)
 
 all: dirs antlr4 classes
 
-CLASSES= ExprJoyRide.java Calc.java
+#CLASSES= ExprJoyRide.java Calc.java
+CLASSES= ExtractInterfaceListener.java ExtractInterfaceTool.java
 classes: $(CLASSES:.java=.class)
 
+# 	$(JAVA) -jar $(ANTLR_JAR) -no-listener -visitor -o $(GENERATED) $(GRAMMAR)
+#	$(JAVA) -jar $(ANTLR_JAR) -o $(GENERATED) Expr.g4
+
 antlr4: $(GRAMMAR)
-	$(JAVA) -jar $(ANTLR_JAR) -no-listener -visitor -o $(GENERATED) $(GRAMMAR)
-	$(JAVA) -jar $(ANTLR_JAR) -o $(GENERATED) Expr.g4
+	$(JAVA) -jar $(ANTLR_JAR) -o $(GENERATED) $(GRAMMAR)
 	$(JAVAC) $(JFLAGS) -d $(OUTPUT) $(GENERATED)/*.java
 
 dirs:
@@ -39,3 +42,4 @@ dirs:
 clean:
 	$(RM) -rf $(OUTPUT)
 	$(RM) -rf $(GENERATED)
+	$(RM) *~
