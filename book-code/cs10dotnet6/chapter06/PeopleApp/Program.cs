@@ -1,4 +1,5 @@
-﻿using Packt.Shared;
+﻿using Microsoft.VisualBasic;
+using Packt.Shared;
 using static System.Console;
 using static System.Collections.Hashtable;
 
@@ -136,3 +137,15 @@ WriteLine();
 WriteLine("Displacement Vector Addition");
 WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, {dv3.Y})");
 
+Employee john = new()
+{
+    Name = "John Jones",
+    DateOfBirth = new(year: 1990, month: 7, day: 28)
+};
+WriteLine();
+john.WriteToConsole();
+john.EmployeeCode = "JJ001";
+john.HireDate = new(year: 2014, month: 11, day: 23);
+WriteLine($"{john.Name} was hired on {john.HireDate:dd/MM/yy}");
+
+WriteLine();
