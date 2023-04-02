@@ -160,4 +160,21 @@ aliceInPerson.WriteToConsole();
 WriteLine(aliceInEmployee.ToString());
 WriteLine(aliceInPerson.ToString());
 
+WriteLine();
+if (aliceInPerson is Employee)
+{   
+    WriteLine($"{nameof(aliceInPerson)} IS an Employee");
+    Employee explicitAlice = (Employee)aliceInPerson;
+}
 
+if (aliceInPerson is Employee explicitAliceD)
+{
+    WriteLine($"{nameof(aliceInPerson)} IS an Employee");
+}
+
+Employee? aliceAsEmployee = aliceInPerson as Employee;
+if (aliceAsEmployee != null)
+{
+    WriteLine($"{nameof(aliceInPerson)} AS an Employee");
+}
+WriteLine();
